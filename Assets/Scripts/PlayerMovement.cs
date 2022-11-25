@@ -17,6 +17,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool isLadder;
     public bool isClimbing;
 
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashingPower = 24f;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = 1f;
+
     private Animator anim;
 
     //Animation States
@@ -25,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private TrailRenderer tr;
 
     private void Start()
     {
@@ -60,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
         }
         #endregion
 
+        
 
         //Flips The Sprite
         Flip();
@@ -129,6 +135,8 @@ public class PlayerMovement : MonoBehaviour
 
         }
     }
+
+   
 
     #region Animations
     //Decides When To Play The Right Animation
