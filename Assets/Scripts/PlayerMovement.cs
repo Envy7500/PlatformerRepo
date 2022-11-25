@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         }
         #endregion
 
+
         //Flips The Sprite
         Flip();
 
