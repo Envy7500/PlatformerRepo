@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing;
     private float dashingPower = 24f;
     private float dashingTime = 0.2f;
-    private float dashingCooldown = 1f;
+    private float dashingCooldown = 0.25f;
 
     private Animator anim;
 
@@ -65,7 +65,15 @@ public class PlayerMovement : MonoBehaviour
         }
         #endregion
 
-        
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+
+        if (isDashing)
+        {
+            return;
+        }
 
         //Flips The Sprite
         Flip();
@@ -93,6 +101,11 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             rb.gravityScale = 4f;
+        }
+
+        if (isDashing)
+        {
+            return;
         }
 
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
@@ -136,7 +149,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-   
+   private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        yield return new WaitForSeconds(dashingTime);
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
+    }
 
     #region Animations
     //Decides When To Play The Right Animation
