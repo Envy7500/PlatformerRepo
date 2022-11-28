@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #region Climbing Code
-    //Climbing
+    //Advanced Movement / Velocity
     private void FixedUpdate()
     {
 
