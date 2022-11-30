@@ -19,8 +19,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool canDash = true;
     private bool isDashing;
-    private float dashingPower = 24f;
-    private float dashingTime = 0.2f;
+    private float horizontalDashingPower = 24f;
+    private float verticalDashingPower = 18f;
+    private float dashingTime = 0.35f;
     private float dashingCooldown = 0.25f;
 
     private Animator anim;
@@ -93,6 +94,11 @@ public class PlayerMovement : MonoBehaviour
             isClimbing = true;
         }
 
+        if (isDashing)
+        {
+            return;
+        }
+        
         if (isClimbing)
         {
             rb.gravityScale = 8f;
@@ -103,10 +109,7 @@ public class PlayerMovement : MonoBehaviour
             rb.gravityScale = 4f;
         }
 
-        if (isDashing)
-        {
-            return;
-        }
+        
 
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
@@ -155,8 +158,9 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
-        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        rb.velocity = new Vector2(horizontal * horizontalDashingPower, vertical * verticalDashingPower);
         yield return new WaitForSeconds(dashingTime);
+        rb.velocity = Vector3.zero;
         rb.gravityScale = originalGravity;
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
