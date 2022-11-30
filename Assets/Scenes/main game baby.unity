@@ -138,9 +138,13 @@ PrefabInstance:
       propertyPath: Dashcooldown
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3384676214199075213, guid: 1de16fa0ebaba6d4f95a41cc14573d0d, type: 3}
+      propertyPath: dashingCooldown
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3384676214199076465, guid: 1de16fa0ebaba6d4f95a41cc14573d0d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3384676214199076465, guid: 1de16fa0ebaba6d4f95a41cc14573d0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -665,7 +669,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

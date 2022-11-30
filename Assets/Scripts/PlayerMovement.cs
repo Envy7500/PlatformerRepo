@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalDashingPower = 24f;
     private float verticalDashingPower = 24f;
     private float dashingTime = 0.2f;
-    private float dashingCooldown = 0.25f;
+    public float dashingCooldown = 0.25f;
 
     private Animator anim;
 
