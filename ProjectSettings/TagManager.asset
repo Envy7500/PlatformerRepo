@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ladder
   - OneWayPlatform
+  - Checkpoint
+  - spikes
   layers:
   - Default
   - TransparentFX
