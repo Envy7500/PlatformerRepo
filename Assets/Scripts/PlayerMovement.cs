@@ -10,6 +10,16 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 14f;
     private bool isFacingRight = true;
 
+    private bool isWallSliding;
+    private float wallSlidingspeed = 2f;
+
+    private bool isWallJumping;
+    private float wallJumpingDirection;
+    private float wallJumpingTime = 0.2f;
+    private float wallJumpingCounter;
+    private float wallJumpingDuration = 0.4f;
+    private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+
     private bool doubleJump;
 
     private float vertical;
@@ -32,7 +42,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-
+    [SerializeField] private Transform WallCheck;
+    [SerializeField] private LayerMask WallLayer;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -80,12 +91,25 @@ public class PlayerMovement : MonoBehaviour
         Flip();
 
         UpdateAnimationState();
+
+        WallSlide();
+        WallJump();
+
+        if (!isWallJumping)
+        {
+            Flip();
+        }
     }
 
     #region Climbing Code
     //Advanced Movement / Velocity
     private void FixedUpdate()
     {
+        
+        if (!isWallJumping)
+        {
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        }
 
         vertical = Input.GetAxis("Vertical");
 
@@ -112,8 +136,66 @@ public class PlayerMovement : MonoBehaviour
         
 
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+
+
     }
 
+    private bool IsWalled()
+    {
+        return Physics2D.OverlapCircle(WallCheck.position, 0.5f, WallLayer);
+    }
+
+    private void WallSlide()
+    {
+        if (IsWalled() && !IsGrounded() && horizontal != 0f)
+        {
+            isWallSliding = true;
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingspeed, float.MaxValue));
+        }
+        else
+        {
+            isWallSliding = false;
+        }
+    }
+
+    private void WallJump()
+    {
+        if (isWallSliding)
+        {
+            isWallJumping = false;
+            wallJumpingDirection = -transform.localScale.x;
+            wallJumpingCounter = wallJumpingTime;
+
+            CancelInvoke(nameof(StopWallJumping));
+        }
+        else 
+        {
+            wallJumpingCounter -= Time.deltaTime;
+        }
+
+        if (Input.GetButtonDown("Jump") && wallJumpingCounter >0f)
+        {
+            isWallJumping = true;
+            rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            wallJumpingCounter = 0f;
+
+            if (transform.localScale.x != wallJumpingDirection)
+            {
+                isFacingRight = !isFacingRight;
+                Vector3 localscale = transform.localScale;
+                localscale.x *= -1f;
+                transform.localScale = localscale;
+            }
+
+            Invoke(nameof(StopWallJumping), wallJumpingDuration);
+        }
+    }
+
+    private void StopWallJumping()
+    {
+        isWallJumping=false;
+    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ladder"))
