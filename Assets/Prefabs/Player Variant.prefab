@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2827467984728154559
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7337735660528759550}
-  m_Layer: 0
-  m_Name: WallCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7337735660528759550
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2827467984728154559}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000001809283, y: -0.00000001809283, z: 0}
-  m_LocalScale: {x: 0.30354732, y: 0.30354732, z: 0.30354732}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5574879895887524007}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7180209708246726358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38,14 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3384676214199075213, guid: 1de16fa0ebaba6d4f95a41cc14573d0d, type: 3}
-      propertyPath: WallCheck
-      value: 
-      objectReference: {fileID: 7337735660528759550}
-    - target: {fileID: 3384676214199075213, guid: 1de16fa0ebaba6d4f95a41cc14573d0d, type: 3}
-      propertyPath: WallLayer.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 3384676214199075214, guid: 1de16fa0ebaba6d4f95a41cc14573d0d, type: 3}
       propertyPath: m_Size.x
       value: 0.18
@@ -148,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3384676214199076467, guid: 1de16fa0ebaba6d4f95a41cc14573d0d, type: 3}
       propertyPath: m_Name
-      value: Player Variant
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3384676214401134545, guid: 1de16fa0ebaba6d4f95a41cc14573d0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -185,8 +146,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!4 &5574879895887524007 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3384676214199076465, guid: 1de16fa0ebaba6d4f95a41cc14573d0d, type: 3}
-  m_PrefabInstance: {fileID: 7180209708246726358}
-  m_PrefabAsset: {fileID: 0}
