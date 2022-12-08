@@ -1026,6 +1026,22 @@ CompositeCollider2D:
         Y: -70000000
       - X: -130000000
         Y: -70000000
+    - - X: 10000100
+        Y: -80000041
+      - X: 10000100
+        Y: -69999959
+      - X: 10000041
+        Y: -69999900
+      - X: -41
+        Y: -69999900
+      - X: -100
+        Y: -69999959
+      - X: -100
+        Y: -80000041
+      - X: -41
+        Y: -80000100
+      - X: 10000041
+        Y: -80000100
   m_CompositePaths:
     m_Paths:
     - - {x: 51.874992, y: 23.437502}
@@ -1403,6 +1419,10 @@ CompositeCollider2D:
       - {x: -17.937502, y: -6.5000057}
       - {x: -18, y: -6.6875043}
       - {x: -17.999971, y: -7}
+    - - {x: 0.9999748, y: -8.00001}
+      - {x: 0.9999748, y: -6.9999905}
+      - {x: -0.00001, y: -7.0000257}
+      - {x: 0.0000252, y: -8.00001}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &481409130
@@ -1500,6 +1520,16 @@ Tilemap:
   m_GameObject: {fileID: 481409126}
   m_Enabled: 1
   m_Tiles:
+  - first: {x: 0, y: -8, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -18, y: -7, z: 0}
     second:
       serializedVersion: 2
@@ -2194,11 +2224,15 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 69
     m_Data: {fileID: 11400000, guid: f54ca142cecdc3f4bac5b20b28cc7935, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 07294c49dd0c2af47ac3c2394d5cfe4f, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 69
     m_Data: {fileID: -1049144181, guid: f186d33341e3bbb45ba2085352566d52, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -1045074061, guid: f186d33341e3bbb45ba2085352566d52, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 40
+  - m_RefCount: 41
     m_Data:
       e00: 1
       e01: 0
@@ -2271,13 +2305,13 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 69
+  - m_RefCount: 70
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -18, y: -7, z: 0}
-  m_Size: {x: 71, y: 31, z: 1}
+  m_Origin: {x: -18, y: -8, z: 0}
+  m_Size: {x: 71, y: 32, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
