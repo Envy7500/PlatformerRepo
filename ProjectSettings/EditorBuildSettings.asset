@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/main game baby.unity
     guid: 6e0da0d53724ca044af1f6cecadfbc20
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 780b53569448f9242a67d34784049192
   m_configObjects: {}

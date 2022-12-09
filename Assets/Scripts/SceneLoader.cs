@@ -22,4 +22,8 @@ public class SceneLoader : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
 }
